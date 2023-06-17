@@ -26,9 +26,21 @@ export const counterSlice = createSlice({
 // Action creators are generated for each case reducer function
 // Refer the return object of counterSlice to understand what is actions
 // at https://redux-toolkit.js.org/api/createslice#return-value
+// This you need not do createAction, that is by default done for
+// each reducer function
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 // Refer the return object of counterSlice to understand what is reducer
 // at https://redux-toolkit.js.org/api/createslice#return-value
+// The documenation says "The generated reducer function is suitable for "
+// " passing to the Redux combineReducers function as a "slice reducer"."
+// Inside the generated main.chunk.js (or could be other generated js file)
+// You will have something like the below for the reducer
+// var store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["configureStore"])({
+//  reducer: {
+//    counter: _features_counter_counterSlice__WEBPACK_IMPORTED_MODULE_1__["default"]
+//  }
+// });
+// This default export is used withing app/store.js as counterReducer
 
 export default counterSlice.reducer

@@ -8,6 +8,9 @@ export function Counter() {
   // for use in this component, using a selector function."
   const count = useSelector((state) => state.counter.value)
   //Understand useDispatch from https://react-redux.js.org/api/hooks#usedispatch
+  // It says "This hook returns a reference to the dispatch function
+  // from the Redux store. You may use it to dispatch actions as needed."
+  // You can then call dispatch(actionName)
   const dispatch = useDispatch()
 
   return (
