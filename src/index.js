@@ -1,31 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
+import store from './app/store'
+import { Provider } from 'react-redux'
+import Counter from './features/counter/Counter'
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {favoritecolor: "red"};
-  }
-  // Because of this method, the colour always remain yellow as
-  // it is the one passed. Even when user clicks changeColor
-  // buton, the color does not change
-  // Refer getDerivedStateFromProps from
-  // https://www.w3schools.com/REACT/react_class.asp
-  static getDerivedStateFromProps(props, state) {
-    return {favoritecolor: props.favcol };
-  }
-  changeColor = () => {
-    this.setState({favoritecolor: "blue"});
-  }
-  render() {
-    return (
-      <div>
-      <h1>My Favorite Color is {this.state.favoritecolor}</h1>
-      <button type="button" onClick={this.changeColor}>Change color</button>
-      </div>
-    );
-  }
-}
+// As of React 18
+// Let the Index program be the redux example
+const root = ReactDOM.createRoot(document.getElementById('root'))
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Header favcol="yellow" />);
+root.render(
+  <Provider store={store}>
+    <Counter/>
+  </Provider>
+)
