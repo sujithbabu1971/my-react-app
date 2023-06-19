@@ -7,7 +7,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {favoritecolor: "red"};
-	this.state.size= this.props.size;
+    //this.state.size= this.props.size;
 
   }
   static getDerivedStateFromProps(props, state) {
@@ -15,7 +15,14 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <h1>My Favorite Color is {this.state.favoritecolor} with size from state {this.state.size} & size from props {this.props.size} </h1>
+      <h1>My Favorite Color from state is {this.state.favoritecolor} ,
+      It is the same as FavColor from props which is {this.props.favcol}
+       since I  have a getDerivedStateFromProps method that
+      assigns the favoritecolor in state to the favcol in props.
+      Favorite Color from props is {this.props.favoritecolor}.
+       The size from state is {this.state.size} & size from props
+      is {this.props.size}. If you uncomment<br/> //this.state.size= this.props.size;
+      <br/>in constructor they become the same. </h1>
     );
   }
 }
